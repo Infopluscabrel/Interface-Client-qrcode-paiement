@@ -3,7 +3,21 @@
     <title>Html-Qrcode Demo</title>
 <body>
     <div id="qr-reader" style="width:500px"></div>
-    <div id="qr-reader-results"></div>
+    <div id="qr-reader-results"><script>
+        var user =localStorage.getItem('user');
+         console.log(JSON.parse(user)) ;
+       var value  =JSON.parse(user).LOGIN;                 
+             $("#qr-reader-results").kendoQRCode({
+         value: value,
+         color: "#008000" , 
+          size: 173,
+         overlay: {
+           imageUrl: "./assets/img/logo.png",
+           width: 50,
+           height: 50
+         }
+       });
+     </script></div>
 </body>
 <script src="html5-qrcode.min.js"></script>
 <script>
